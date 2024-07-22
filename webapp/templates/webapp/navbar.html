@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CRUD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor04">
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'dashboard' %}">Dashboard &nbsp <i class="fa fa-home" aria-hidden="true"></i>
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user-logout' %}">Log out &nbsp <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'register' %}">Register &nbsp <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'my_login' %}">Log in &nbsp <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            </li>
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+</nav>
